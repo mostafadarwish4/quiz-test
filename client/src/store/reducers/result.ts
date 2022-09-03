@@ -1,5 +1,5 @@
 
-const resultReducer = (state=0,action:any)=>{
+const resultReducer = (state=10,action:any)=>{
   switch (action.type) {
     case 'setResult':
       return state+10
