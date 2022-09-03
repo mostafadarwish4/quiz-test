@@ -9,22 +9,21 @@ const { wordList, scoresList } = JSON.parse(TestData_1.default);
 const router = (0, express_1.Router)();
 router.get('/words', (req, res) => {
     const arr = ['verb', 'adverb', 'adjective', 'noun'];
-    const obj = {};
+    //slice 10 and get random values with all cases should included.
     const result = wordList.slice(0, 10).map(function () {
         let index = Math.floor(Math.random() * this.length);
-        while (obj[index] && !arr.includes(wordList[index].pos)) {
+        //sure if 4 cases should included
+        while (!arr.includes(wordList[index].pos)) {
             index = Math.floor(Math.random() * this.length);
         }
-        obj[index] = true;
+        //delete case that included
         arr.splice(arr.indexOf(wordList[index].pos), 1);
         return this.splice(index, 1)[0];
     }, wordList);
-    console.log(result.length, 'result');
     res.send(result);
 });
 router.post('/rank', (req, res) => {
-    console.log(req.body, 'body');
-    const { score } = req.body;
+    const score = req.body;
     const obj = {};
     // get all scoreList ranks count
     for (const x of scoresList) {
@@ -38,7 +37,6 @@ router.post('/rank', (req, res) => {
         }
     }
     const result = (Math.floor((count / scoresList.length) * 100));
-    console.log(result, 'rank percent');
     res.status(200).send(result);
 });
 exports.default = router;
