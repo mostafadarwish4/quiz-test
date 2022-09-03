@@ -70,14 +70,14 @@ const Practice = () => {
                         //increase reusult by 10
                         if(words[index].pos===res) dispatch({type:'setResult'})
                         //check if last element so finish and reset
-                        if(index===2){
+                        if(index===words.length-1){
                             navigate('/rank')
                             dispatch({type:'setIndx',payload:-1})
                         }else{dispatch({type:'setIndx',payload:index+1})}
                         setVerfy(false)
                         setRes(false)
                     }}
-                    >{index===9?'Finish':'Next'}</div>)
+                    >{index===words.length-1?'Finish':'Next'}</div>)
                 }
             </div>
         <ProgressBar max={10} now={index+1}  style={{width:'90%',height:15,margin:10}} variant='info'/>
