@@ -9,7 +9,9 @@ const app = (0, express_1.default)();
 const cors_1 = __importDefault(require("cors"));
 const port = 5000;
 app.use(express_1.default.json({ strict: false }));
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: '*'
+}));
 app.get('/', (req, res) => {
     res.send('Hello To Vocabulary Api');
 });

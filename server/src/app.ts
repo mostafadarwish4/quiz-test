@@ -5,7 +5,9 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 const port = 5000;
 app.use(express.json({strict: false}));
-app.use(cors())
+app.use(cors({
+  origin:'*'
+}))
 
 
 app.get('/', (req:Request, res:Response) => {
