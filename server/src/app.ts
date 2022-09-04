@@ -1,15 +1,13 @@
 import express, { Express, Request, Response } from 'express';
 import router from './Routes';
 const app:Express = express();
+import bodyParser from 'body-parser';
 import cors from 'cors';
-const port = 3002;
-
+const port = 5000;
+app.use(express.json({strict: false}));
 app.use(cors())
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+
+
 app.get('/', (req:Request, res:Response) => {
   res.send('Hello To Vocabulary Api');
 });

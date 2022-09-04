@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { State} from '../interfaces';
 import { appDispatch } from '../store';
-import { fetchRank } from '../store/actions';
 const choices=['verb','noun','adjective','adverb']
 const Practice = () => {
     const index=useSelector((state:State)=>state.index)

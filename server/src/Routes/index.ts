@@ -5,18 +5,18 @@ const router=Router();
 
 router.get('/words',(req:Request,res:Response)=>{
     const arr=['verb','adverb','adjective','noun']
+    const container=JSON.parse(JSON.stringify(wordList))
     //slice 10 and get random values with all cases should included.
-    const result:[]=wordList.slice(0,10).map(function(){
+    const result:[]=container.slice(0,10).map(function(){
         let index=Math.floor(Math.random()*this.length)
         //sure if 4 cases should included
-        while(!arr.includes(wordList[index].pos)){
+        while(!arr.includes(container[index].pos)&&arr.length!==0){
             index=Math.floor(Math.random()*this.length)
         }
         //delete case that included
-        arr.splice(arr.indexOf(wordList[index].pos),1)
-
+        arr.splice(arr.indexOf(container[index].pos),1)
         return this.splice(index,1)[0]
-    },wordList)
+    },container)
     res.send(result)
 })
 router.post('/rank',(req:Request,res:Response)=>{
@@ -32,6 +32,6 @@ router.post('/rank',(req:Request,res:Response)=>{
         if(+key<score){count=count+obj[key]}
     }
     const result=(Math.floor((count/scoresList.length)*100))
-    res.status(200).send(result)
+    res.send(result.toString())
 })
 export default router
