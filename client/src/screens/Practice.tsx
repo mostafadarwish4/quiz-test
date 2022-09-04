@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { State} from '../interfaces';
 import { appDispatch } from '../store';
+import { setIndx, setResult } from '../store/constants';
 const choices=['verb','noun','adjective','adverb']
 const Practice = () => {
     const index=useSelector((state:State)=>state.index)
@@ -67,12 +68,12 @@ const Practice = () => {
                     <div style={{cursor:'pointer',fontSize:24}}
                     onClick={()=>{
                         //increase reusult by 10
-                        if(words[index].pos===res) dispatch({type:'setResult'})
+                        if(words[index].pos===res) dispatch({type:setResult})
                         //check if last element so finish and reset
                         if(index===words.length-1){
                             navigate('/rank')
-                            dispatch({type:'setIndx',payload:-1})
-                        }else{dispatch({type:'setIndx',payload:index+1})}
+                            dispatch({type:setIndx,payload:-1})
+                        }else{dispatch({type:setIndx,payload:index+1})}
                         setVerfy(false)
                         setRes(false)
                     }}

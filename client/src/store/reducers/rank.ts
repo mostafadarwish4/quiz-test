@@ -1,7 +1,9 @@
-// import type { PayloadAction } from '@reduxjs/toolkit'
-const rankReducer =(state='',action:any) => {
+import { stringAaction } from "../actionsTypes"
+import { getRank } from "../constants"
+
+const rankReducer =(state='',action:stringAaction) => {
   switch (action.type) {
-    case 'setRank':
+    case getRank:
      return action.payload
     default:
       return state

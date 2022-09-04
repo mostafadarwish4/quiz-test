@@ -1,7 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import router from './Routes';
 const app:Express = express();
-import bodyParser from 'body-parser';
 import cors from 'cors';
 const port = 5000;
 app.use(express.json({strict: false}));

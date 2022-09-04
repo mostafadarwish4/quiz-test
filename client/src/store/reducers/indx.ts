@@ -1,6 +1,8 @@
+import { setIndx } from "../constants"
+
 const indxReducer = (state=-1,action:any)=>{
   switch (action.type) {
-    case 'setIndx':
+    case setIndx:
       return action.payload
     default:
       return state

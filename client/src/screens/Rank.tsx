@@ -9,7 +9,7 @@ const Rank = () => {
   const result =useSelector((state:State)=>state.result)
   useEffect(()=>{
      dispatch(fetchRank(result))
-  },[dispatch])
+  },[dispatch,result])
   const rank=useSelector((state:State)=>state.rank)
   return (
    <Form header="Test Result's Rank"

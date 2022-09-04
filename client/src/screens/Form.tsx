@@ -5,6 +5,7 @@ import {useNavigate } from "react-router-dom";
 import { State } from '../interfaces';
 import { appDispatch } from '../store';
 import { fetchWords } from '../store/actions';
+import { setIndx } from '../store/constants';
 
 interface Forms{
     btnText:string,
@@ -27,7 +28,7 @@ const Form = ({btnText,header,fmid,smid}:Forms) => {
        <p >{smid}</p>
        <Button variant='success' style={{minWidth:100}}  
        onClick={()=>{
-        dispatch({type:'setIndx',payload:index+1})
+        dispatch({type:setIndx,payload:index+1})
         navigate('/test')
        }}>
         {btnText}
