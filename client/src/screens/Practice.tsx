@@ -79,7 +79,7 @@ const Practice = () => {
                     >{index===words.length-1?'Finish':'Next'}</div>)
                 }
             </div>
-        <ProgressBar max={10} now={index+1}  style={{width:'90%',height:15,margin:10}} variant='info'/>
+        <ProgressBar max={10} now={index+1}  style={{width:'90%',height:5,margin:10}} variant='info'/>
         </div>
     </Container>
   )
