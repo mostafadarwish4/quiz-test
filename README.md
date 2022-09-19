@@ -1,4 +1,5 @@
 # quiz-test
-
-#npm start ///to start  client app
-#npm run dev or npm start to run server app
+#to start  client app
+--npm start 
+#to run server app
+--npm run dev or npm start 
